@@ -1,0 +1,63 @@
+<%- include('header') -%>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="row">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Diák: <%=student.username%> </a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="container ml-5">
+                            <a class="nav-link" href="/student/<%=student._id%>/kurzusaim">Kurzusaim</a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <a class="navbar-brand" href="/logout">Kilépés</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row text-center mt-5 mb-4">
+            <h1>Elérhető kurzusok neked</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Név</th>
+                    <th>Nyelv</th>
+                    <th>Szint</th>
+                    <th>Létszám</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <%availableCourses.forEach(function(course){%>
+                    <tr>
+                        <td>
+                            <%=course.name%>
+                        </td>
+                        <td>
+                            <%=course.language%>
+                        </td>
+                        <td>
+                            <%=course.level%>
+                        </td>
+                        <td>
+                            <%=course.students.length%>/<%=course.maxnumber%>
+                        </td>
+                        <td style="width: 20px;">
+                                <a href="/student/<%=student._id%>/course/<%=course._id%>/new" class="btn btn-success">
+                                    Add
+                                </a>
+                        </td>
+                    </tr>
+
+                    <%});%>
+            </tbody>
+        </table>
+    </div>
+    <%- include('footer') -%>

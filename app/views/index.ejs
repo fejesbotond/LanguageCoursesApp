@@ -1,0 +1,35 @@
+<%- include('header') -%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <h1 class="text-center mb-4">
+                Bejelentkezés
+            </h1>
+            <form method="POST">
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="username" id="usr" name="username">
+                </div>
+                <div class="mb-4">
+                    <input type="password" class="form-control" placeholder="password" id="pass" name="password">
+                </div>
+                <div class="row g-0 mb-5">
+                    <div class="col-md-5">
+                        <input type=submit class="btn btn-primary w-100" value="Bejelentkezés"/>
+                    </div>
+                    <div class="col-md-5 offset-md-2">
+                        <a class="btn btn-primary w-100" href="/regisztracio" role="button">Regisztráció</a>
+                    </div>
+                </div>
+
+            </form>
+            <div class = "mb-4"><a href="/elfelejtettJelszo" style="color:#A4A4A4;">Elfelejtett jelszó</a></div>
+            
+     
+            <% if(typeof errUser !== 'undefined'){%>
+                <div class="alert alert-danger mb-3"><%= errUser %></div>
+            <% } %>
+           
+        </div>
+    </div>
+</div>
+<%- include('footer') -%>

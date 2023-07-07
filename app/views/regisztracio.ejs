@@ -1,0 +1,61 @@
+<%- include('header') -%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <h1 class="mb-4 text-center">
+                Regisztráció
+            </h1>
+            <form method="POST">
+            <div class="mb-3">
+                <%if(typeof student === 'undefined' || student.username === 'undefined'){%>
+                <input type="text" class="form-control" placeholder="Username" id="usr" name="usr">
+                <%}else{%>
+                    <input type="text" class="form-control" placeholder="Username" id="usr" name="usr" value = <%=student.username %> >
+                <% } %>
+
+            </div>
+            <div class="mb-3">
+                <%if(typeof student === 'undefined' || student.password === 'undefined'){%>
+                    <input type="password" class="form-control" placeholder="Password" id="pass" name="pass">
+                    <%}else{%>
+                        <input type="password" class="form-control" placeholder="Password" id="pass" name="pass" value = <%=student.password %>>
+                    <% } %>
+                
+            </div>
+           
+            <div class="mb-3">
+                <%if(typeof passAgain === 'undefined'){%>
+                    <input type="password" class="form-control" placeholder="Password again" id="passAgain" name="passAgain">
+                    <%}else{%>
+                        <input type="password" class="form-control" placeholder="Password again" id="passAgain" name="passAgain" value = <%=passAgain %>>
+                    <% } %>
+            </div>
+            <div class="mb-4">
+                <%if(typeof student === 'undefined' || student.extraInfo === 'undefined'){%>
+                    <input type="text" class="form-control" placeholder="Első háziállatod neve?/Keresztneved?" id="extra" name="extra">
+                    <%}else{%>
+                        <input type="text" class="form-control" placeholder="Első háziállatod neve?/Keresztneved?" id="extra" name="extra" value = <%=student.extraInfo %>>
+                    <% } %>
+            </div>
+            <div class="row g-0 mb-4">
+                <div class="col-md-5">
+                    <input type=submit class="btn btn-primary w-100" value="Regisztráció"/>
+                </div>
+                <div class="col-md-5 offset-md-2">
+                    <a class="btn btn-primary w-100" href="/" role="button">Bejelentkezés</a>
+                </div>
+            </div>
+        </form>
+        <% if(typeof sikeresReg !== 'undefined' && sikeresReg === true){ %>
+            <div class="alert alert-success">Sikeres regisztráció, most már bejelentkezhet!</div>
+        <% }else if (typeof fieldError !== 'undefined') { %>
+            <div class="alert alert-danger"><%= fieldError %></div>
+        <% }else if(typeof passError !== 'undefined'){ %>
+            <div class="alert alert-danger"><%= passError %></div>
+        <% }else if(typeof usrError !== 'undefined'){ %>
+            <div class="alert alert-danger"><%= usrError %></div>
+        <% } %>
+        </div>
+    </div>
+</div>
+<%- include('footer') -%>

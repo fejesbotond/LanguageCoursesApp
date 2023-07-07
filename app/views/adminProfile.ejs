@@ -1,0 +1,52 @@
+<%- include('header') -%>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="nav-link disabled">ADMIN</a>
+        <a class="navbar-brand" href="/logout">Kilépés</a>
+    </div>
+</nav>
+<div class="container">
+    <div class="row text-center mt-5 mb-4">
+        <h1>Language Courses</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Név</th>
+                    <th>Nyelv</th>
+                    <th>Szint</th>
+                    <th>Létszám</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+               <% kurzusok.forEach(function(course) { %>
+                <tr>
+                    <td><%= course.name %></td>
+                    <td><%= course.language %></td>
+                    <td><%= course.level %></td>
+                    <td>
+                        <div class="text"><%= course.students.length %>/<%= course.maxnumber%></div>
+                    </td>
+                    <td style="width: 90px">
+                        <a class="btn btn-sm btn-primary" href="/admin/kurzusok/<%=course._id%>/edit">
+                            <i class="far fa-edit"></i>
+                        </a>
+                        <a href="/admin/kurzusok/<%=course._id%>/del" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+              <% }); %> 
+            </tbody>
+        </table>
+            <div class = "col-md-2 offset-md-5">
+                <a href="/admin/kurzusok/new" class="btn btn-success btn-lg w-100 mt-4">New</a>
+            </div>
+       
+    </div>
+</div>
+<%- include('footer') -%>

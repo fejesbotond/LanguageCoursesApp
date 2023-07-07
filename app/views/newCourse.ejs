@@ -1,0 +1,84 @@
+<%- include('header') -%>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class = "row">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link disabled">ADMIN</a>
+                </li>
+                <li class="nav-item">
+                    <div class = "container ml-5">
+                        <a class="nav-link" href="/admin/kurzusok">Kurzusok</a>
+                    </div>
+                   
+                </li>
+            </ul>
+            
+        </div>
+        <a class = "navbar-brand" href="/logout">Kilépés</a>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <h1 class="mb-4 text-center">
+                Új Kurzus
+            </h1>
+            <div>
+                <h4>Név:</h4>
+            </div>
+            <form method="POST">
+            <div class="mb-4">
+                <% if(typeof kurzus === 'undefined' || typeof kurzus.name === 'undefined'){ %> 
+                <input type="text" class="form-control" placeholder="name" id="usr" name="name">
+                <%}else{ %>
+                <input type="text" class="form-control" placeholder="name" id="usr" name="name" value = <%=kurzus.name%>>
+                <% } %> 
+            </div>
+            <div>
+                <h4>Nyelv:</h4>
+            </div>
+            <div class="mb-4">
+                <% if(typeof kurzus === 'undefined' || typeof kurzus.language === 'undefined'){ %> 
+                    <input type="text" class="form-control" placeholder="language" id="usr" name="language">
+                    <%}else{ %>
+                    <input type="text" class="form-control" placeholder="language" id="usr" name="language" value = <%=kurzus.language%>>
+                    <% } %> 
+            </div>
+            <div>
+                <h4>Szint:</h4>
+            </div>
+            <div class="mb-4">
+                <% if(typeof kurzus === 'undefined' || typeof kurzus.level === 'undefined'){ %> 
+                    <input type="text" class="form-control" placeholder="level" id="usr" name="level">
+                    <%}else{ %>
+                    <input type="text" class="form-control" placeholder="level" id="usr" name="level" value = <%=kurzus.level%>>
+                    <% } %> 
+            </div>
+            <div>
+                <h4>Max létszám:</h4>
+            </div>
+            <div class="mb-5">
+                <% if(typeof kurzus === 'undefined' || typeof kurzus.maxnumber === 'undefined'){ %> 
+                    <input type="text" class="form-control" placeholder="max" id="usr" name="maxnumber">
+                    <%}else{ %>
+                    <input type="text" class="form-control" placeholder="max" id="usr" name="maxnumber" value = <%=kurzus.maxnumber%>>
+                    <% } %> 
+            </div>
+
+            <div class="row g-0">
+                <div class="col-md-4 offset-md-4 mb-4">
+                    <input type=submit class="btn btn-success btn-lg w-100" value="Mentés"/>
+                    
+                </div>
+            </div>
+        </form>
+        <% if(typeof fieldError !== 'undefined'){ %>
+            <div class="alert alert-danger"><%= fieldError  %> </div>
+        <% }else if (typeof numError !== 'undefined') { %>
+            <div class="alert alert-danger"><%= numError %></div>
+        <% } %>
+        </div>
+    </div>
+</div>
+<%- include('footer') -%>

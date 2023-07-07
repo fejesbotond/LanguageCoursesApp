@@ -1,0 +1,48 @@
+<%- include('header') -%>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <div class = "mb-5">
+          <h1>Elfelejtett jelszó</h1>
+        </div>
+        
+        <form method="POST">
+          <div class="mb-4">
+            <input type="text" class="form-control" placeholder="Username" id="usern" name="username" />
+          </div>
+          <div class="mb-4">
+            <input type="text" class="form-control" placeholder="Első háziállatod neve?/Keresztneved?" id="pass"
+              name="extraInfo" />
+          </div>
+
+          <div class="row g-0">
+            <div class="col-md-2 offset-md-5">
+              <input type=submit class="btn btn-primary w-100" value="OK" />
+
+            </div>
+          </div>
+        </form>
+        <div class="row g-0 mt-3">
+          <div class="col-md-4">
+            <a class="btn btn-primary w-100 mb-4" href="/" role="button">Bejelentkezés</a>
+          </div>
+        </div>
+        <% if(typeof err !=='undefined' ){ %>
+          <div class="alert alert-danger">
+            <%= err %>
+          </div>
+          <% }else if(typeof username !=='undefined' && typeof pass !=='undefined' ){%>
+            <div class="alert alert-success">
+             <p> Felhasználóneved: <b><%=username %></b></p>
+                <p>Jelszavad: <b><%=pass %></b></p>
+                <p><b>Bejelentkezés gombra kattintva léphetsz tovább!</b></p>
+            </div>
+            <% } %>
+      </div>
+      
+
+
+    </div>
+  </div>
+  </div>
+  <%- include('footer') -%>

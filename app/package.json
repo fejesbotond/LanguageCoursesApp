@@ -1,0 +1,23 @@
+{
+  "name": "languageschool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --config test/mochaConfig.js"
+  },
+  "author": "Fejes Botond",
+  "license": "ISC",
+  "dependencies": {
+    "@recogito/recogito-js": "^1.8.2",
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.3.1",
+    "package.json": "^2.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6"
+  }
+}
